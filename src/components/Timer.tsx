@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, IconButton, SegmentedControl, Text } from '@radix-ui/themes'
+import { Box, Flex, Heading, IconButton, SegmentedControl, Text } from '@radix-ui/themes'
 import useTasksStore from '../stores/TodoStore'
 import { PauseIcon, PlayIcon } from '@radix-ui/react-icons';
 import CircleProgressBar from './CircleProgressBar';
@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 const Timer = () => {
     const { activeTask } = useTasksStore();
 
-    const { timeLeft, resume, start, status, stop, percentage, reset, updatePhase, phase, cycles } = usePomodoroTimer({
+    const { timeLeft, resume, start, status, stop, percentage, updatePhase, phase, cycles } = usePomodoroTimer({
         workTime: 1 * 60 * 1000,  // 25 minutes
         shortBreakTime: 10 * 1000,  // 5 minutes
         longBreakTime: 2 * 60 * 1000,  // 15 minutes
@@ -23,7 +23,7 @@ const Timer = () => {
     useEffect(() => {
         setCurrentPhase(phase)
     }, [phase])
-    
+
     const formatTime = (milliseconds: number) => {
         const totalSeconds = Math.floor(milliseconds / 1000);
         const minutes = Math.floor(totalSeconds / 60);
