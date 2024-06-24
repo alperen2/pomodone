@@ -12,7 +12,7 @@ const TaskList = () => {
             id: tasks.length + 1,
             task: "You can edit this title",
             status: TaskStatuses.waiting,
-            pomodoroCount: 1
+            requiredCycles: 1
         })
     }
 

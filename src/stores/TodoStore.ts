@@ -44,7 +44,7 @@ const useTasksStore = create<ITodoStore>()((set, get) => ({
   setTaksPomodoroCount: (taskId, count) => {
     const updatedTasks = get().tasks.map((task) => {
       if (task.id === taskId) {
-        task.pomodoroCount = count;
+        task.requiredCycles = count;
       }
       return task;
     });

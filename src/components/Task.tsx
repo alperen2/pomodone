@@ -34,7 +34,7 @@ const Task: FC<TaskProps> = (props) => {
                 </Flex>
             </Text>
             <Flex gap={"2"}>
-                {props.task.status !== TaskStatuses.done && <PomodoroSetButton taskId={props.task.id} pomodoroCount={props.task.pomodoroCount} />}
+                {props.task.status !== TaskStatuses.done && <PomodoroSetButton taskId={props.task.id} pomodoroCount={props.task.requiredCycles} />}
                 {props.task.status !== TaskStatuses.done &&
                     <StartPomodoroButton
                         id={props.task.id}
@@ -88,7 +88,7 @@ const PomodoroSetButton: FC<PomodoroSetButtonProps> = (props) => {
                 onBlur={
                     (v) => {
                         const value = parseInt(v.target.value);
-                        if (value === getTask(props.taskId)?.pomodoroCount) return;
+                        if (value === getTask(props.taskId)?.requiredCycles) return;
                         setTaksPomodoroCount(props.taskId, value)
                     }}
             >

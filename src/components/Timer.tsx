@@ -9,14 +9,16 @@ const Timer = () => {
     const { activeTask } = useTasksStore();
 
     const { timeLeft, resume, start, status, stop, percentage, updatePhase, phase, cycles } = usePomodoroTimer({
-        workTime: 1 * 60 * 1000,  // 25 minutes
-        shortBreakTime: 10 * 1000,  // 5 minutes
-        longBreakTime: 2 * 60 * 1000,  // 15 minutes
+        workTime: Number(window.localStorage.getItem('workTime') ?? 25) * 60 * 1000,  // 25 minutes
+        shortBreakTime: Number(window.localStorage.getItem('shortBreakTime') ?? 5) * 60 * 1000,  // 5 minutes
+        longBreakTime: Number(window.localStorage.getItem('longBreakTime') ?? 15) * 60 * 1000,  // 15 minutes
         autoNextCycle: true,
         autoSwitch: true,
         cyclesBeforeLongBreak: 4,
         onTimerFinish: () => console.log('Pomodoro finished!')
     })
+
+    
 
     const [currentPhase, setCurrentPhase] = useState(phase);
 

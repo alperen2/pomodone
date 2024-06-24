@@ -8,5 +8,5 @@ export interface ITask {
     id: number;
     task: string;
     status: TaskStatuses;
-    pomodoroCount: number;
+    requiredCycles: number;
 }
